@@ -88,21 +88,25 @@ async function populateTable(orders){
         mainTable.insertAdjacentElement("beforeend", tableRow);
 
         picture.innerHTML = `<a id="${e.id}"><img style="height:100px;width:auto" src="https://static.wixstatic.com/media/${e.media[0].url}"></a>`;
-        picture.addEventListener('pointermove', floatingZoom);
-        picture.addEventListener('pointerenter', (e)=>{
-            // console.log(e.layerY, e.layerX)
-            let preview_picture = document.createElement("img");
-            preview_picture.className = "preview_picture";
-            preview_picture.src = e.target.firstChild.firstChild.src;
-            preview_picture.id = e.target.firstChild.id + "-preview";
-            preview_picture.style = `left:${e.layerX}px;top:${e.layerY}px`;
-            document.getElementById('main-container').insertAdjacentElement('afterbegin', preview_picture)
-        })
-        picture.addEventListener("pointerleave", (e)=>{
-            // console.log("left")
-            let preview_picture = document.getElementById(`${e.target.firstChild.id}-preview`)
-            preview_picture.remove();
-        })
+        
+        if(window.innerWidth > 1200){
+            picture.addEventListener('pointermove', floatingZoom);
+            picture.addEventListener('pointerenter', (e)=>{
+                // console.log(e.layerY, e.layerX)
+                let preview_picture = document.createElement("img");
+                preview_picture.className = "preview_picture";
+                preview_picture.src = e.target.firstChild.firstChild.src;
+                preview_picture.id = e.target.firstChild.id + "-preview";
+                preview_picture.style = `left:${e.layerX}px;top:${e.layerY}px`;
+                document.getElementById('main-container').insertAdjacentElement('afterbegin', preview_picture)
+            })
+            picture.addEventListener("pointerleave", (e)=>{
+                // console.log("left")
+                let preview_picture = document.getElementById(`${e.target.firstChild.id}-preview`)
+                preview_picture.remove();
+            })
+        }
+        
         title.innerHTML = `${e.name}`;
         price.innerHTML = `$${e.price}`;
 
