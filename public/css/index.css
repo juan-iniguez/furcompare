@@ -1,0 +1,56 @@
+:root{
+    /* CSS HEX */
+    --apricot: #F8C3AFff;
+    --african-violet: #BE8ABFff;
+    --african-violet-2: #BE8ABFff;
+    --salmon-pink: #FDA4ADff;
+    --amaranth-pink: #EA9ABBff;
+    --african-violet-3: #BE8ABFff;
+    --black: #000000ff;
+    --african-violet-4: #BE8ABFff;
+    --african-violet-5: #BE8ABFff;
+    --salmon-pink-2: #FEA5ADff;
+}
+
+
+
+body{
+    background-color: var(--apricot);
+    margin: 0px;
+    font-size: 1.5em;
+}
+
+a{
+    width: auto;
+    height: 100px;
+    cursor: zoom-in;
+}
+
+.table{
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.preview_picture{
+    position: absolute;
+    width: 800px;
+    height: auto;
+}
+
+.main-container{
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    margin: auto;
+    margin-top: 20px;
+}
+
+.table-striped > tbody > tr:nth-of-type(2n+1) > * {
+    --bs-table-accent-bg: var(--african-violet);
+    color: var(--bs-table-striped-color);
+  }
+
+.table-striped > tbody > tr:nth-of-type(2n) > * {
+--bs-table-accent-bg: var(--salmon-pink);
+color: var(--bs-table-striped-color);
+}
